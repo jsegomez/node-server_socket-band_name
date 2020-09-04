@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="https://e7.pngegg.com/pngimages/359/699/png-clipart-favicon-computer-icons-icon-design-share-icon-globalization-text-logo.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket Server</title>
+</head>
+<body>
+    <h1>Aquí estamos</h1>
+    
+
+    <script src="socket.io/socket.io.js"></script>
+
+    <script>
+        var socket = io();
+
+        socket.on('connect', function(){
+            console.log('Conectado al servidor')
+        });
+
+        socket.on('disconnect', function(){
+            console.log('Desconectado...')
+        });
+
+        socket.emit('mensaje', {
+            nombre: 'Josué',
+            apellido: 'Gómez'
+        });
+
+        socket.on('mensaje', function(payload){
+            console.log('Escuchando:', payload);
+        });
+    </script>
+
+</body>
+</html>
+
